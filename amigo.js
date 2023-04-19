@@ -6,8 +6,8 @@
 //Create a separate array with the corresponding stock quantities of each item maximum of 10.
 
 
-let stock=["mango", "apple", "banana", "sweetberries", "ovacado", "guava", "lemon"];
-let stockQuantity=[12,3,4,55,6,8,80];
+let stock=["mango", "apple", "banana", "sweetberries", "ovacado", "guava", "lemon","blueberries", "vegetables", "cassava"];
+let stockQuantity=[12,3,4,55,6,8,80,54,23,33];
 
 //Write a function to add a new item to the inventory, updating both arrays.
 function add(){
@@ -35,18 +35,29 @@ console.log(totalItems())
 
 
 //Write a function to find the item with the lowest stock quantity.
-function lowestQuantity(){
-    
+function lowestQuantity(stockQuantity){
+    if(stockQuantity.length <=1){
+return stockQuantity;
 }
+    let middle=Math.floor(stockQuantity.length/2)
+    let left=stockQuantity.slice(0,middle)
+    let right=stockQuantity.slice(middle)
+    return sortedQuantity(lowestQuantity(left), sortedQuantity(right))
 
-
-
-
-
-
-
-
-
+}
+function sortedQuantity(){
+    let emptyarr=[];
+    while(left.length && right.length){
+        if(left[0] < right[0]){
+            emptyarr.push(left.shift())
+        }
+        else{
+            emptyarr.push(right.shift())
+        }
+    }
+    return [...emptyarr,...left,...right]
+}
+console.log(lowestQuantity(sortedQuantity[-1]))
 
 
 
