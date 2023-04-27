@@ -6,15 +6,16 @@
 //Create a separate array with the corresponding stock quantities of each item maximum of 10.
 
 
-let stock=["mango", "apple", "banana", "sweetberries", "ovacado", "guava", "lemon","blueberries", "vegetables", "cassava"];
-let stockQuantity=[12,3,4,55,6,8,80,54,23,33];
+let stock=["mango", "apple", "banana", "sweetberries", "ovacado", "guava", "lemon","blueberries", "cassava"];
+let stockQuantity=[12,23,54,55,18,80,54,26,33];
 
 //Write a function to add a new item to the inventory, updating both arrays.
 function add(){
-    stock.push("orange");
-    stockQuantity.push(20);
-   return[stock, stockQuantity]
-}
+  stock.push("Orange")
+  stockQuantity.push(600)
+  return [stock,stockQuantity]
+
+   }
 let added=add()
 console.log(added)
 
@@ -28,37 +29,22 @@ console.log(updateQuantity())
 
 //Write a function to calculate the total number of items in the inventory.
 function totalItems(){
-   let x=stock.length
-   return x
+   sum=0;
+   for(let i=0; i<stockQuantity.length; i++){
+      return sum+= stockQuantity[i]
+   }
 }
 console.log(totalItems())
 
+stockQuantity.reduce((a,b)=>{return a+b},0)
 
-//Write a function to find the item with the lowest stock quantity.
-function lowestQuantity(stockQuantity){
-    if(stockQuantity.length <=1){
-return stockQuantity;
+// //Write a function to find the item with the lowest stock quantity.
+function lowest(){
+   let low=Math.min(...stockQuantity)
+   let index=stockQuantity.indexOf(low)
+   console.log(`The lowest item is` + " " + stock[index])
 }
-    let middle=Math.floor(stockQuantity.length/2)
-    let left=stockQuantity.slice(0,middle)
-    let right=stockQuantity.slice(middle)
-    return sortedQuantity(lowestQuantity(left), sortedQuantity(right))
-
-}
-function sortedQuantity(){
-    let emptyarr=[];
-    while(left.length && right.length){
-        if(left[0] < right[0]){
-            emptyarr.push(left.shift())
-        }
-        else{
-            emptyarr.push(right.shift())
-        }
-    }
-    return [...emptyarr,...left,...right]
-}
-console.log(lowestQuantity(sortedQuantity[-1]))
-
+lowest()
 
 
 
